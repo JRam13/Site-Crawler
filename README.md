@@ -1,9 +1,8 @@
 Site-Crawler
 ============
+Simple Java web crawler using Jsoup.
 
 //*************************************************************************************************//
-
-Simple Java web crawler using Jsoup.
 
 How to use:
 -Run from Eclipse/VMCompiler
