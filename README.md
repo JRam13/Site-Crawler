@@ -32,8 +32,13 @@ How to use:
 //*************************************************************************************************//
 
 Example output of LinkFinder:
+----------------------------------
 
 Input url you wish to crawl:
+
+http://divinity.uchicago.edu/
+
+Input url you wish to crawl (please include http://... :
 
 http://divinity.uchicago.edu/
 
@@ -51,10 +56,8 @@ Processing over 1500 links... Please wait
 
 Processing over 2000 links... Please wait
 
-Done 
+Done 3
 
 Number of Visited Sites: 2767
 
-Number of Results: 1
-
-thisis Was Found at : http://divinity.uchicago.edu/about/visit.shtml
+thisis Was Found at : http://divinity.uchicago.edu/about/visit.shtml (http://thisis.uchicago.edu/ )
