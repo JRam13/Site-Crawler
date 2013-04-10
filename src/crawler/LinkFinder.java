@@ -86,7 +86,7 @@ public class LinkFinder {
 					if(isUnique(absHref)){
 						unvisitedURLs.add(absHref);
 						if(linkFound(absHref)){
-							listLinks.add(toFind + " Was Found at : " + currentURL + " ("+absHref+")");
+							listLinks.add(toFind  + " ("+absHref+")" + " Was Found at : " + currentURL);
 						}
 					}
 					
@@ -102,6 +102,7 @@ public class LinkFinder {
 					System.out.println("Done 3");
 					//printArray(visitedURLs);
 					System.out.println("Number of Visited Sites: "+visitedURLs.size());
+					System.out.println("Number of Results: "+listLinks.size());
 					printArray(listLinks);
 					System.exit(0);
 					
