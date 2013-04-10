@@ -27,7 +27,7 @@ How to use:
 
 -When prompted, type in what you want to find
 
--Results will show any url where your search was found. 
+-Results will show url where your search was found. 
 
 //*************************************************************************************************//
 
