@@ -4,43 +4,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-/*
- * 
- * 
- * Basics of crawlers: (taken from stackoverflow)
-	¥ A list of unvisited URLs - seed this with one or more starting pages
-	¥ A list of visited URLs - so you don't go around in circles
-	¥ A set of rules for URLs you're not interested in - so you don't index the whole Internet
+public class LinkFinder {
 
-Put these in persistent storage, so you can stop and start the crawler without losing state.
-Algorithm is:
-
-while(list of unvisited URLs is not empty) {
-    take URL from list
-    fetch content
-    record whatever it is you want to about the content
-    if content is HTML {
-        parse out URLs from links
-        foreach URL {
-           if it matches your rules
-              and it's not already in either the visited or unvisited list
-              add it to the unvisited list
-        }
-    }
-}
- */
-
-
-public class Crawler {
-	
-	private static String url;
+	private static String url, toFind;
 	private static ArrayList<String> unvisitedURLs = new ArrayList<String>();
+	private static ArrayList<String> listLinks = new ArrayList<String>();
 	private static ArrayList<String> visitedURLs = new ArrayList<String>();
 	private static String currentURL;
 	private static boolean over500, over1000, over1500, over2000;
@@ -48,8 +21,12 @@ public class Crawler {
 	public static void main(String[] args) throws IOException {
 		
 		Scanner scn = new Scanner(System.in); 
-		System.out.println("Input url you wish to crawl");
+		System.out.println("Input url you wish to crawl (please include http://... :");
 		url = scn.nextLine();
+		System.out.println("Input the url (or word) you wish to find:");
+		toFind = scn.nextLine();
+		System.out.println("Searching... Please be patient");
+		
 		
 		//System.out.println(url);
 		unvisitedURLs.add(url);
@@ -66,7 +43,8 @@ public class Crawler {
 			else{
 				System.out.println("Done 1");
 				System.out.println("Number of Visited Sites: "+visitedURLs.size());
-				printArray(visitedURLs);
+				System.out.println("Number of Results: "+listLinks.size());
+				printArray(listLinks);
 				System.exit(0);
 			}
 		}
@@ -107,6 +85,9 @@ public class Crawler {
 					String absHref = element.attr("abs:href"); 
 					if(isUnique(absHref)){
 						unvisitedURLs.add(absHref);
+						if(linkFound(absHref)){
+							listLinks.add(toFind + " Was Found at : " + currentURL);
+						}
 					}
 					
 				}
@@ -121,7 +102,7 @@ public class Crawler {
 					System.out.println("Done 3");
 					//printArray(visitedURLs);
 					System.out.println("Number of Visited Sites: "+visitedURLs.size());
-					printArray(visitedURLs);
+					printArray(listLinks);
 					System.exit(0);
 					
 				}
@@ -159,6 +140,15 @@ public class Crawler {
 			}
 		}
 			
+	}
+	
+	private static boolean linkFound(String url2) {
+		if(url2.contains(toFind)){
+			return true;
+		}
+		return false;
+		
+		
 	}
 	
 	private static void printArray(ArrayList<String> urlList) throws IOException {
