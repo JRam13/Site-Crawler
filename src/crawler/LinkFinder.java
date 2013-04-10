@@ -21,7 +21,7 @@ public class LinkFinder {
 	public static void main(String[] args) throws IOException {
 		
 		Scanner scn = new Scanner(System.in); 
-		System.out.println("Input url you wish to crawl (please include http://... :");
+		System.out.println("Input url you wish to crawl (please include http://...):");
 		url = scn.nextLine();
 		System.out.println("Input the url (or word) you wish to find:");
 		toFind = scn.nextLine();
@@ -86,7 +86,7 @@ public class LinkFinder {
 					if(isUnique(absHref)){
 						unvisitedURLs.add(absHref);
 						if(linkFound(absHref)){
-							listLinks.add(toFind + " Was Found at : " + currentURL);
+							listLinks.add(toFind + " Was Found at : " + currentURL + " ("+absHref+")");
 						}
 					}
 					
