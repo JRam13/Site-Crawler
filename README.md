@@ -34,10 +34,6 @@ How to use:
 Example output of LinkFinder:
 ----------------------------------
 
-Input url you wish to crawl:
-
-http://divinity.uchicago.edu/
-
 Input url you wish to crawl (please include http://... :
 
 http://divinity.uchicago.edu/
